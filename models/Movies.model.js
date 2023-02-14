@@ -1,22 +1,27 @@
 const { Schema, model } = require('mongoose')
 
-const celebModel = new Schema(
+const moviesModel = new Schema(
     {
-        name: {
+        title: {
             type: String,
             required: true,
         },
-        occupation: {
+        genre: {
             type: String,
             required: true,
         },
-        catchPhrase: {
+        plot: {
             type: String,
+            required: true,
+        },
+        cast: {
+            type: Array,
+            ref: 'Celeb',
             required: true,
         }
     }
 )
 
-const Celeb = model('Celeb', celebModel)
+const Movie = model('Movie', moviesModel)
 
-module.exports = Celeb
+module.exports = Movie
